@@ -36,7 +36,7 @@ jobs:
 
       - name: "Release"
         if: env.release_version != '' && success()
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: ${{ env.basedir }}/${{ env.package }}.zip
 
@@ -56,7 +56,7 @@ jobs:
         if: env.release_version != '' && success()
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version-file: 'pyproject.toml'
 
       - name: "Cache pip"
         if: env.release_version != '' && success()
