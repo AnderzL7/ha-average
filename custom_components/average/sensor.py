@@ -558,6 +558,8 @@ class AverageSensor(SensorEntity):
                         value += last_state * last_elapsed
                         elapsed += last_elapsed
                         trending_last_state = last_state
+                        if elapsed:
+                            value /= elapsed
 
                     _LOGGER.debug("Historical average state: %s", value)
 
